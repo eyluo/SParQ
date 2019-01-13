@@ -2,6 +2,7 @@ import sys
 import pprint
 import spotipy
 import spotipy.util as util
+from pqueue import PQueue
 
 SCOPE = 'playlist-modify-public ' + \
         'user-read-currently-playing ' + \
@@ -37,6 +38,8 @@ def main():
 
         if (name):
             playlistID = fetchPlaylistID(sp, username, name)
+
+        pq = PQueue()
 
         # Step 3: in a perpetual loop, modify the playlist
         while (True):
